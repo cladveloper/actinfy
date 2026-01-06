@@ -1,0 +1,33 @@
+{
+  "name": "actinfy-api",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "gcp-build": "npm run build",
+    "start": "NODE_ENV=dev node dist/index.js",
+    "deploy": "gcloud functions deploy analyzePlay --gen2 --runtime=nodejs20 --region=southamerica-west1 --source=. --entry-point=analyzePlay --trigger-http --min-instances=0 --max-instances=10 --allow-unauthenticated",
+    "dev": "NODE_ENV=dev nodemon src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^5.0.0",
+    "@google/generative-ai": "^0.24.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "firebase-admin": "^13.6.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.0.3",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "hosting": {
+    "public": ".output/public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "run": {
+          "serviceId": "analyzeplay", 
+          "region": "southamerica-west1"
+        }
+      },
+      {
+        "source": "**",
+        "destination": "/404.html"
+      }
+    ]
+  }
+}
